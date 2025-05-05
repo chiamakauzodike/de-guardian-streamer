@@ -7,7 +7,7 @@
 # ==============================
 
 resource "aws_lambda_function" "guardian_fetcher" {
-  function_name = "guardian-fetcher"
+  function_name = "${var.lambda_function_name}-${random_id.suffix.hex}"
   role          = aws_iam_role.lambda_exec_role.arn
   handler       = "lambda_function.lambda_handler"
   runtime       = var.python_runtime
