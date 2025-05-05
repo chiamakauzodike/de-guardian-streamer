@@ -1,6 +1,7 @@
 name: Deploy Lambda with Terraform
 
 on:
+  workflow_dispatch: {}
   push:
     branches:
       - main
