@@ -6,11 +6,6 @@
 # IAM Role & Permissions
 # =============================
 
-# Generate a unique suffix for naming resources
-resource "random_id" "suffix" {
-  byte_length = 4
-}
-
 # IAM Role for Lambda execution
 resource "aws_iam_role" "lambda_exec_role" {
   name = "guardian_lambda_exec_role-${random_id.suffix.hex}"
