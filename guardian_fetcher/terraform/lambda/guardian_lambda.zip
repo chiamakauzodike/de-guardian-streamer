@@ -1,0 +1,4 @@
+cd guardian_lambda
+pip install -r requirements.txt -t package
+cp *.py package/
+cd package && zip -r ../terraform/lambda/guardian_lambda.zip .

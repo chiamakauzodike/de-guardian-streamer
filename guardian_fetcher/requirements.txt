@@ -1,0 +1,8 @@
+requests
+python-dotenv
+pytest
+flake8
+bandit
+kafka-python
+black
+boto3
