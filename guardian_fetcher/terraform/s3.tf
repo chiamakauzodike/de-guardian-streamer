@@ -17,8 +17,8 @@ resource "random_id" "suffix" {
 
 resource "aws_s3_object" "lambda_zip" {
   bucket = aws_s3_bucket.lambda_bucket.id
-  source = "${path.module}/lambda/guardian_lambda.zip"
+  source = "${path.module}/guardian_lambda.zip"
   key    = "guardian_lambda.zip"
-  etag   = filemd5("${path.module}/lambda/guardian_lambda.zip")
+  etag   = filemd5("${path.module}/guardian_lambda.zip")
 }
 

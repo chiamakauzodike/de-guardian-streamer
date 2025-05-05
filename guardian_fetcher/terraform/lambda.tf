@@ -7,7 +7,7 @@
 # ==============================
 
 resource "aws_lambda_function" "guardian_fetcher" {
-  function_name = "guardian-article-fetcher"
+  function_name = "guardian-fetcher"
   role          = aws_iam_role.lambda_exec_role.arn
   handler       = "lambda_function.lambda_handler"
   runtime       = var.python_runtime

@@ -2,10 +2,17 @@ from fetcher import fetch_guardian_articles
 from publisher import SQSArticlePublisher
 from config import GUARDIAN_API_KEY, SQS_URL
 import os
+import boto3
+
+sqs_url = os.environ.get("SQS_URL")
+
+sqs = boto3.client("sqs")
 
 def lambda_handler(event, context):
     query = event.get("query")
     date_from = event.get("date_from")
+    message = "Guardian article data here"
+    sqs.send_message(QueueUrl=sqs_url, MessageBody=message)
 
     if not query:
         return {

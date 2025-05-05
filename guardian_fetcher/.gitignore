@@ -7,7 +7,7 @@ venv
 **/.terraform
 **/.terraform*
 .DS_Store
-packages/
+package/
 dependencies/
 data/
 .coverage
