@@ -1,5 +1,7 @@
 variable "aws_region" {
-  default = "eu-west-2"
+  description = "AWS region to deploy resources"
+  type        = string
+  default     = "eu-west-2"
 }
 
 variable "guardian_api_key" {
@@ -11,4 +13,16 @@ variable "guardian_api_key" {
 variable "python_runtime" {
   type        = string
   default     = "python3.11"
+}
+
+variable "lambda_function_name" {
+  description = "Name of the Lambda function"
+  type        = string
+  default     = "guardian-fetcher"
+}
+
+variable "sqs_queue_name" {
+  description = "Name of the SQS queue"
+  type        = string
+  default     = "guardian-articles-queue"
 }

@@ -17,10 +17,15 @@ resource "aws_lambda_function" "guardian_fetcher" {
   s3_bucket     = aws_s3_bucket.lambda_bucket.id
   s3_key        = aws_s3_object.lambda_zip.key
 
+  # filename         = "${path.module}/../guardian_lambda.zip"
+  # source_code_hash = filebase64sha256("${path.module}/../guardian_lambda.zip")
   environment {
     variables = {
       GUARDIAN_API_KEY = var.guardian_api_key
       SQS_URL          = aws_sqs_queue.articles_queue.id
     }
   }
+  depends_on = [
+    aws_iam_role_policy_attachment.lambda_policy_attachment
+  ]
 }

@@ -10,3 +10,7 @@ output "sqs_queue_url" {
 output "s3_code_bucket" {
     value = aws_s3_bucket.lambda_bucket.bucket
 }
+
+output "lambda_iam_role_name" {
+  value = aws_iam_role.lambda_exec_role.name
+}
