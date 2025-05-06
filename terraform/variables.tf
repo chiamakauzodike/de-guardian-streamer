@@ -26,8 +26,3 @@ variable "sqs_queue_name" {
   type        = string
   default     = "guardian-articles-queue"
 }
-
-variable "lambda_function_name" {
-  description = "Base name for the Lambda function"
-  default     = "guardian-fetcher"
-}
