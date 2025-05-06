@@ -25,11 +25,11 @@ jobs:
 
       - name: Install dependencies for Lambda (if any)
         run: |
-          pip install -r lambda/requirements.txt -t lambda/package || echo "No requirements.txt found"
+          pip install -r guardian_lambda/requirements.txt -t guardian_lambda/package || echo "No requirements.txt found"
 
       - name: Package Lambda function
         run: |
-          cd lambda
+          cd guardian_lambda
           rm -f ../guardian_lambda.zip
           cd package && zip -r ../../guardian_lambda.zip . && cd ..
           zip -g ../guardian_lambda.zip lambda_function.py config.py
@@ -42,7 +42,7 @@ jobs:
       - name: Terraform Init
         working-directory: terraform
         run: terraform init
-        
+
       - name: Terraform Validate
         working-directory: terraform
         run: terraform validate

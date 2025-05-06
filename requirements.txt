@@ -6,3 +6,4 @@ bandit
 kafka-python
 black
 boto3
+moto

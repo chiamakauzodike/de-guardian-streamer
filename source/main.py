@@ -1,6 +1,6 @@
-from guardian_fetcher.source.fetcher import fetch_guardian_articles
+from fetcher import fetch_guardian_articles
 from publisher import SQSArticlePublisher
-from config import GUARDIAN_API_KEY, SQS_URL
+from guardian_lambda.config import GUARDIAN_API_KEY, SQS_URL
 from dotenv import load_dotenv
 
 def run():

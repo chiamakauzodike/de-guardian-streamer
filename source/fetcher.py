@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 from typing import List, Optional, Dict
 import logging
-from config import GUARDIAN_API_KEY, SQS_URL
+from guardian_lambda.config import GUARDIAN_API_KEY, SQS_URL
 
 
 API_URL = "https://content.guardianapis.com/search"

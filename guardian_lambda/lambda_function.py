@@ -1,8 +1,9 @@
-from fetcher import fetch_guardian_articles
-from publisher import SQSArticlePublisher
-from config import GUARDIAN_API_KEY, SQS_URL
+from source.fetcher import fetch_guardian_articles
+from source.publisher import SQSArticlePublisher
+from guardian_lambda.config import GUARDIAN_API_KEY, SQS_URL
 import os
 import boto3
+
 
 sqs_url = os.environ.get("SQS_URL")
 
@@ -40,3 +41,12 @@ def lambda_handler(event, context):
             "statusCode": 500,
             "body": f"Internal error: {str(e)}"
         }
+    
+def publish_to_sqs(articles, queue_url):
+    import boto3
+    import json
+
+    sqs = boto3.client("sqs")
+    for article in articles:
+        message_body = json.dumps(article)
+        sqs.send_message(QueueUrl=queue_url, MessageBody=message_body)
