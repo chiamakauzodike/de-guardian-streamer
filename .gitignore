@@ -2,7 +2,7 @@
 venv
 **/__pycache__
 *.json
-# *.txt
+*.txt
 **/*.tfstate*
 **/.terraform
 **/.terraform*
@@ -11,3 +11,7 @@ package/
 dependencies/
 data/
 .coverage
+terraform
+tests
+courses
+sources/publisher.py
